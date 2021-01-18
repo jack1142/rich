@@ -442,12 +442,7 @@ class Color(NamedTuple):
         if _type == ColorType.DEFAULT:
             return ("39" if foreground else "49",)
 
-        elif _type == ColorType.WINDOWS:
-            number = self.number
-            assert number is not None
-            return (str(30 + number if foreground else 40 + number),)
-
-        elif _type == ColorType.STANDARD:
+        elif _type in (ColorType.STANDARD, ColorType.WINDOWS):
             number = self.number
             assert number is not None
             fore, back = (30, 40) if number < 8 else (82, 92)
