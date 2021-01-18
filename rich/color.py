@@ -507,10 +507,8 @@ class Color(NamedTuple):
                 triplet = self.triplet
             else:  # self.system == ColorSystem.EIGHT_BIT
                 assert self.number is not None
-                if self.number < 8:
+                if self.number < 16:
                     return Color(self.name, ColorType.WINDOWS, number=self.number)
-                elif self.number < 16:
-                    return Color(self.name, ColorType.WINDOWS, number=self.number - 8)
                 triplet = ColorTriplet(*EIGHT_BIT_PALETTE[self.number])
 
             color_number = WINDOWS_PALETTE.match(triplet)
