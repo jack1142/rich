@@ -158,7 +158,7 @@ def test_downgrade() -> None:
     )
 
     assert Color.parse("bright_red").downgrade(ColorSystem.WINDOWS) == Color(
-        "bright_red", ColorType.WINDOWS, 1, None
+        "bright_red", ColorType.WINDOWS, 9, None
     )
 
     assert Color.parse("#ff0000").downgrade(ColorSystem.WINDOWS) == Color(
